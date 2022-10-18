@@ -7,3 +7,4 @@ public class task1 {
         return ans;
     }
 }
+

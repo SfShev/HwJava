@@ -25,3 +25,4 @@ public class task4 {
         return true;
     }
 }
+
