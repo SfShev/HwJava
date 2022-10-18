@@ -10,5 +10,6 @@ public class task2 {
         }
         return k;
     }
+
 }
 
