@@ -22,7 +22,7 @@ public class Knigth {
 
     private void backtrack(int col, int row, int count) {
         if (count == size * size) {
-            addBoard(count);
+            addBoard();
 
             return;
         }
@@ -47,7 +47,7 @@ public class Knigth {
         return true;
     }
 
-    private void addBoard(int count) {
+    private void addBoard() {
         List<String> b = new ArrayList<>();
         for (int i = 0; i < board.length; i++) {
             StringBuilder sb = new StringBuilder();
