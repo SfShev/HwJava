@@ -30,7 +30,7 @@ public class Knigth {
             int newRow = row + move[0];
             int newCol = col + move[1];
             int newStep = count + 1;
-            if (canPlace(newRow, newCol, board)) {
+            if (canPlace(newRow, newCol)) {
                 board[newRow][newCol] = newStep;
                 count++;
                 backtrack(newCol, newRow, newStep);
@@ -40,7 +40,7 @@ public class Knigth {
         }
     }
 
-    private boolean canPlace(int row, int col, int[][] board) {
+    private boolean canPlace(int row, int col) {
         if (row >= size || row < 0) return false;
         if (col >= size || col < 0) return false;
         if (board[row][col] != 0) return false;
