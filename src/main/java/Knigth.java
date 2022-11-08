@@ -1,28 +1,33 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Knigth {
     public static void main(String[] args) {
         Knigth k = new Knigth();
-        k.solveKnigth(8);
+        k.solveKnigth(4);
     }
 
     int[][] board;
     int count;
-    int size = 8;
-    int[][] steps = {{2, 1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}, {1, -2}, {2, -1}};
+    int size = 4;
+    int[][] steps = {{1,2},{-1,2},{1,-2},{-1,-2},{2,1},{-2,1},{2,-1},{-2,-1}};
     List<List<String>> ans = new ArrayList();
 
     public List<List<String>> solveKnigth(int size) {
         board = new int[size][size];
-        backtrack(0, 0, 0);
+        board[0][0] = 1;
+        backtrack(0, 0, 1);
+
         return ans;
 
     }
 
-    private void backtrack(int col, int row, int count) {
+    private void backtrack(int row, int col, int count) {
+
         if (count == size * size) {
             addBoard();
+            print();
 
             return;
         }
@@ -31,10 +36,11 @@ public class Knigth {
             int newCol = col + move[1];
             int newStep = count + 1;
             if (canPlace(newRow, newCol)) {
-                board[newRow][newCol] = newStep;
                 count++;
-                backtrack(newCol, newRow, newStep);
+                board[newRow][newCol] = newStep;
+                backtrack(newRow, newCol, newStep);
                 board[newRow][newCol] = 0;
+
             }
 
         }
@@ -58,6 +64,15 @@ public class Knigth {
         }
         ans.add(b);
     }
+
+    public void print() {
+        for (int[] item : board) {
+            System.out.println(Arrays.toString(item));
+
+        }
+        System.out.println();
+    }
+
 }
 
 
