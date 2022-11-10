@@ -41,6 +41,7 @@ public class Knigth {
                 backtrack(newRow, newCol, newStep);
                 board[newRow][newCol] = 0;
 
+
             }
 
         }
